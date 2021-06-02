@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+       <!-- Compiled and minified CSS -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+       <!-- Compiled and minified JavaScript -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+               
+      <style>
+          p{
+              font-size:25px;
+              background-color:rgb(1, 71, 71);
+              margin:0;
+              text-align: center;
+              color: white;
+              padding: 5px;  
+               cursor: pointer;
+          }
+
+          #panel{
+              height: 140px;
+              width: auto;
+              border: 1px solid black;
+              background-color: rgb(42, 79, 202);
+           
+              text-align: center;
+              color: white;
+              font-weight: 700;
+          }
+
+        
+
+      </style>
+
+</head>
+<body>
+
+    <p id="bot">Haga click para mostrar / ocultar panel</p>
+
+    <div id="panel" >
+        <h5>ESTE ES EL TEXTO QUE SE VA A MOSTRAR DENTRO DEL DIV</h5>
+
+        <button id="botadd" class="waves-effect waves-light btn-small">Añadir nuevo Item</button>
+
+        <button id="botaddclass" class="waves-effect waves-light btn-small">Agregar / Eliminar clase</button>
+
+        <button id="botaddestilo" class="waves-effect waves-light btn-small">Añadir estilo</button>
+      
+    </div>
+
+    <div>
+        <form>
+            <input type="text" id="nombre" value="">
+        </form>
+    </div>
+
+    <div>
+
+        <ol id="lista" class="collection" >
+            <li class="collection-item">Item 1</li>
+            <li class="collection-item">Item 2</li>
+        </ol>
+
+    </div>
+
+       
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+    
+
+        $("#bot").click(function(){
+            console.log($("#nombre").attr("id"));
+        })
+
+        var corr = 3;
+        $("#botadd").click(function(){
+            $("#lista").append(`<li class="collection-item">Item ${corr}</li>`);
+            corr++;
+        })
+
+        $("#botdel").click(function(){
+            $("#lista").remove();
+            corr=1;
+        })
+
+      
+
+        $("#botaddclass").click(function(){
+            $("#lista").toggleClass();
+        })
+
+        $("#botaddestilo").click(function(){
+            $("#lista").css({"cursor":"pointer","color":"blue","font-size":"25px"});
+        })
+
+
+
+        });
+    </script>
+
+</body>
+</html>
